@@ -22,6 +22,24 @@ class SpringKafkaPracticeKotlinApplicationTests {
                 "    \"id\": \"123\",\n" +
                 "    \"value\": \"456\"\n" +
                 "}")
+
+        kafkaTemplate.send(
+            "test_topic1",
+            "group_id",
+            "{\n" +
+                    "    \"id\": \"123\",\n" +
+                    "    \"value1\": \"456\"\n" +
+                    "}")
+
+
+        kafkaTemplate.send(
+            "test_topic",
+            "group_id",
+            "{\n" +
+                    "    \"id\": \"123\",\n" +
+                    "    \"value\": \"456\"\n" +
+                    "    \"value2\": \"456\"\n" +
+                    "}")
     }
 
     fun producerFactory(): ProducerFactory<String, String> {
